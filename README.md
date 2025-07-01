@@ -1,15 +1,17 @@
-## 🚀 Langkah-langkah Menjalankan Project Laravel: `RAWAT INAP`
+# 🚀 Panduan Menjalankan Project Laravel: `RAWAT INAP`
 
-### 📥 1. Clone Project dari GitHub
+---
+
+## 📥 1. Clone Project dari GitHub
 
 ```bash
 git clone git@github.com:pmyeditz/rawat_inap.git
-```
-```bash
 cd rawat_inap
 ```
 
-### 🛠️ 2. Salin File `.env`
+---
+
+## 🛠️ 2. Salin File `.env`
 
 ```bash
 cp .env.example .env
@@ -17,13 +19,11 @@ cp .env.example .env
 
 ---
 
-### ⚙️ 3. Konfigurasi Database
+## ⚙️ 3. Konfigurasi Database
 
-#### **A. Jika Menggunakan MAMP (MacOS)**
+### 🔵 A. Jika Menggunakan MAMP (MacOS)
 
-Edit file `.env` dan sesuaikan:
-
-```
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -34,11 +34,9 @@ UNIX_SOCKET=/Applications/MAMP/tmp/mysql/mysql.sock
 DB_SOCKET=/Applications/MAMP/tmp/mysql/mysql.sock
 ```
 
-#### **B. Jika Menggunakan XAMPP (Windows/Linux)**
+### 🟠 B. Jika Menggunakan XAMPP (Windows/Linux)
 
-Edit file `.env` dan sesuaikan:
-
-```
+```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -50,7 +48,64 @@ DB_SOCKET=
 
 ---
 
-### 📦 4. Install Dependency Laravel
+## 📧 4. Konfigurasi Gmail SMTP
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=ridhoae0106@gmail.com
+MAIL_PASSWORD="ohal wpta vsrv cxky"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=ridhoae0106@gmail.com
+MAIL_FROM_NAME="SistemRawatInap"
+```
+
+### ⚠️ Catatan:
+
+* `MAIL_PASSWORD` adalah **App Password Gmail**, bukan password login biasa.
+* Aktifkan **2-Step Verification** dan buat App Password di:
+  [https://myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords)
+
+---
+
+## ✉️ 5. Menambahkan Akun Gmail Lain
+
+Jika ingin menggunakan akun Gmail lain sebagai pengirim email, ikuti langkah berikut:
+
+### ✅ Langkah-langkah:
+
+1. Aktifkan **2-Step Verification** di [akun Google](https://myaccount.google.com/security)
+2. Buka [App Passwords](https://myaccount.google.com/apppasswords)
+3. Pilih:
+
+   * **App**: Mail
+   * **Device**: Other → beri nama, misal `LaravelApp`
+4. Klik **Generate**, lalu salin App Password yang muncul
+
+### 🔧 Update `.env`:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=akunlain@gmail.com
+MAIL_PASSWORD="abcd efgh ijkl mnop"
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=akunlain@gmail.com
+MAIL_FROM_NAME="NamaPengirimBaru"
+```
+
+### 🔄 Refresh Konfigurasi:
+
+```bash
+php artisan config:clear
+php artisan config:cache
+```
+
+---
+
+## 📦 6. Install Dependency Laravel
 
 ```bash
 composer install
@@ -58,7 +113,7 @@ composer install
 
 ---
 
-### 🔑 5. Generate Application Key
+## 🔑 7. Generate Application Key
 
 ```bash
 php artisan key:generate
@@ -66,7 +121,7 @@ php artisan key:generate
 
 ---
 
-### 🗃️ 6. Jalankan Migrasi dan Seeder
+## 🗃️ 8. Jalankan Migrasi & Seeder
 
 ```bash
 php artisan migrate --seed
@@ -74,7 +129,7 @@ php artisan migrate --seed
 
 ---
 
-### 🧾 7. Install DomPDF (untuk export PDF)
+## 🧾 9. Install DomPDF (untuk cetak PDF)
 
 ```bash
 composer require barryvdh/laravel-dompdf
@@ -82,40 +137,37 @@ composer require barryvdh/laravel-dompdf
 
 ---
 
-### 🚀 8. Jalankan Laravel
+## 🌐 10. Jalankan Server Laravel
 
 ```bash
 php artisan serve
 ```
 
-Buka browser dan akses:
-👉 `http://localhost:8000`
+Buka di browser:
+👉 [http://localhost:8000](http://localhost:8000)
 
 ---
 
-### 🔐 Login Admin
+## 🔐 Akun Login
 
-Diharapkan mengubah email yang aktif stelah login
+### 👤 Admin
 
-Username :
-```
-admin
-```
-Password :
-```
-admin123
-```
-### 🔐 Login Tenaga Medis
-
-username : 
-```
-dokter1
-```
-password :
-```
-dokter123
+```txt
+Username : admin  
+Password : admin123
 ```
 
+### 👨‍⚕️ Tenaga Medis
 
-## salam hangat RIDHO
+```txt
+Username : dokter1  
+Password : dokter123
+```
 
+> 💡 Setelah login, **disarankan untuk mengubah email dan password akun aktif** demi keamanan sistem.
+
+---
+
+## 🙏 Salam Hangat,
+
+**Ridho**
