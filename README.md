@@ -97,10 +97,27 @@ Buka browser dan akses:
 
 Diharapkan mengubah email yang aktif stelah login
 
+Username :
 ```
-Username : admin
+admin
 Password : admin123
 ```
+Password :
+```
+admin123
+```
+### 🔐 Login Tenaga Medis
+
+username : 
+```
+dokter1
+password : dokter123
+```
+password :
+```
+dokter123
+```
+
 
 ## salam hangat RIDHO
 
