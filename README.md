@@ -6,9 +6,10 @@
 
 ```bash
 git clone git@github.com:pmyeditz/rawat_inap.git
+```
+```bash
 cd rawat_inap
 ```
-
 ---
 
 ## 🛠️ 2. Salin File `.env`
