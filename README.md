@@ -100,7 +100,6 @@ Diharapkan mengubah email yang aktif stelah login
 Username :
 ```
 admin
-Password : admin123
 ```
 Password :
 ```
@@ -111,7 +110,6 @@ admin123
 username : 
 ```
 dokter1
-password : dokter123
 ```
 password :
 ```
